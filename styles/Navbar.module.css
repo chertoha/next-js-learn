@@ -1,0 +1,12 @@
+.link {
+  color: red;
+}
+
+.link:hover {
+  color: green;
+}
+
+.active {
+  font-weight: 700;
+  color: blue;
+}
