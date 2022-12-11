@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import styles from "../styles/Navbar.module.css";
+import styles from "../styles/Navbar.module.scss";
+import Image from "next/image";
+import logoImage from "../public/logo.png";
 
 const links = [
   { id: "1", title: "Home", path: "/" },
@@ -12,20 +14,21 @@ const Navbar = () => {
   const { pathname } = useRouter();
 
   return (
-    <nav>
-      <div>Logo</div>
-      <ul>
+    <nav className={styles.nav}>
+      <div>
+        <Image src={logoImage} width="60" height="60" alt="logo"></Image>
+      </div>
+      <div className={styles.links}>
         {links.map(({ id, title, path }) => (
-          <li key={id}>
-            <Link
-              href={path}
-              className={pathname === path ? styles.active : styles.link}
-            >
-              {title}
-            </Link>
-          </li>
+          <Link
+            key={id}
+            href={path}
+            className={pathname === path ? styles.active : styles.link}
+          >
+            {title}
+          </Link>
         ))}
-      </ul>
+      </div>
     </nav>
   );
 };
