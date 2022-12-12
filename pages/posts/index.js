@@ -1,30 +1,39 @@
 import Heading from "../../components/Heading";
 import Head from "next/head";
 import { BASE_POSTS_URL } from "../../utils/urls";
+import Link from "next/link";
 
-export const getStaticProps = async (context) => {
+export const getStaticProps = async () => {
   const response = await fetch(BASE_POSTS_URL);
   const posts = await response.json();
 
   if (!posts) {
-    return {};
+    return {
+      notFound: true,
+    };
   }
 
   return {
     props: {
-      posts,
+      posts: posts,
     },
   };
 };
 
-const Posts = () => {
+const Posts = ({ posts }) => {
   return (
     <>
       <Head>
-        <title>Posts</title>
+        <title>Posts:</title>
       </Head>
       <Heading text="Posts" />
-      <p>lorem sfsdfsdf sdfs sd sdfsdfdf</p>
+      <ul>
+        {posts.map(({ id, title }) => (
+          <li key={id}>
+            <Link href={`/posts/${id}`}>{title}</Link>
+          </li>
+        ))}
+      </ul>
     </>
   );
 };

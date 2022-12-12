@@ -24,8 +24,8 @@ export async function getStaticProps(context) {
 }
 
 const Contacts = ({ contacts }) => {
-  const router = useRouter();
-  console.log(router);
+  // const router = useRouter();
+  // console.log(router);
 
   // const [contacts, setContacts] = useState([]);
 
