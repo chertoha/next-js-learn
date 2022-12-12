@@ -2,10 +2,13 @@ import Head from "next/head";
 import Heading from "../../components/Heading";
 // import { useEffect, useState } from "react";
 import { BASE_CONTACTS_URL } from "../../utils/urls";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import Link from "next/link";
+import { GetStaticProps, GetStaticPropsContext } from "next";
+import { FC } from "react";
+import { contactType } from "../../types";
 
-export async function getStaticProps(context) {
+export const getStaticProps: GetStaticProps = async(context:GetStaticPropsContext) => {
   const response = await fetch(BASE_CONTACTS_URL);
   const data = await response.json();
   // const data = null;
@@ -23,7 +26,11 @@ export async function getStaticProps(context) {
   };
 }
 
-const Contacts = ({ contacts }) => {
+type contactsPropsType = {
+  contacts: contactType[],
+}
+
+const Contacts : FC <contactsPropsType> = ({ contacts }) => {
   // const router = useRouter();
   // console.log(router);
 

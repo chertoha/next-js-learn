@@ -1,13 +1,18 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import { Montserrat } from "@next/font/google";
+import { FC, ReactNode } from "react";
 
 const roboto = Montserrat({
   weight: "400",
-  subsets: ["latin"],
+  subsets: ["latin"], 
 });
 
-const Layout = ({ children }) => {
+type layoutProps = {
+  children: ReactNode,
+}
+
+const Layout :FC<layoutProps> = ({ children }) => {
   return (
     <div className={roboto.className}>
       <Header />

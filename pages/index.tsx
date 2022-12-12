@@ -2,6 +2,7 @@ import Head from "next/head";
 import Heading from "../components/Heading";
 import styles from "../styles/Home.module.scss";
 
+
 export const getStaticProps = async () => {
   const response = await fetch(`${process.env.API_HOST}/socials/`);
   const socials = await response.json();

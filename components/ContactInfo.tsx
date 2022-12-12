@@ -1,7 +1,13 @@
 import { imageConfigDefault } from "next/dist/shared/lib/image-config";
 import Heading from "./Heading";
+import { contactType } from "../types";
+import { FC } from 'react';
 
-const ContactInfo = ({ contact }) => {
+type contactInfoProps = {
+  contact: contactType,
+}
+
+const ContactInfo: FC<contactInfoProps> = ({ contact }) => {
   const { name, username, email, address } = contact || {};
   const { street, suite, city, zipcode, geo } = address || {};
 

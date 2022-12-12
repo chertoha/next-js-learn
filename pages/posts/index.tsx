@@ -2,8 +2,11 @@ import Heading from "../../components/Heading";
 import Head from "next/head";
 import { BASE_POSTS_URL } from "../../utils/urls";
 import Link from "next/link";
+import { GetStaticProps } from "next";
+import { FC } from "react";
+import { postType } from "../../types";
 
-export const getStaticProps = async () => {
+export const getStaticProps : GetStaticProps = async () => {
   const response = await fetch(BASE_POSTS_URL);
   const posts = await response.json();
 
@@ -20,7 +23,13 @@ export const getStaticProps = async () => {
   };
 };
 
-const Posts = ({ posts }) => {
+
+type postsPropsType = {
+  posts: postType[];
+}
+
+
+const Posts: FC<postsPropsType> = ({ posts }) => {
   return (
     <>
       <Head>

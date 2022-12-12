@@ -2,8 +2,15 @@ import Heading from "../../components/Heading";
 import Head from "next/head";
 import ContactInfo from "../../components/ContactInfo";
 import { BASE_CONTACTS_URL } from "../../utils/urls";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import { contactType } from "../../types";
+import { FC } from "react";
 
-export const getServerSideProps = async (context) => {
+type contactPropsType = {
+  contact: contactType, 
+}
+
+export const getServerSideProps :GetServerSideProps = async (context:GetServerSidePropsContext) => {
   // console.log(context);
 
   const { id } = context.params;
@@ -42,7 +49,7 @@ export const getServerSideProps = async (context) => {
 // };
 // }
 
-const Contact = ({ contact }) => {
+const Contact: FC<contactPropsType> = ({ contact }) => {
   return (
     <>
       <Head>
