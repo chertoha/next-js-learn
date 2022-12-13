@@ -3,9 +3,12 @@ import Heading from "../components/Heading";
 import styles from "../styles/Home.module.scss";
 import { FC } from "react";
 import { socialsType } from "../types";
+import { server } from "../Config";
 
 export const getStaticProps = async () => {
-  const response = await fetch(`${process.env.API_HOST}/socials/`);
+  // const response = await fetch(`${process.env.API_HOST}/socials`);
+  // const response = await fetch(`http://localhost:3000/api/socials`);
+  const response = await fetch(`${server}/api/socials`);
   const socials = await response.json();
 
   if (!socials) {

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "../styles/Navbar.module.scss";
 import Image from "next/image";
-import logoImage from "../public/logo.png";
+import logoImage from "../../public/logo.png";
 
 const links = [
   { id: "1", title: "Home", path: "/" },

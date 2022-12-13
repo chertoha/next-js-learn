@@ -3,18 +3,18 @@ import Footer from "./Footer";
 import { Montserrat } from "@next/font/google";
 import { FC, ReactNode } from "react";
 
-const roboto = Montserrat({
+const font = Montserrat({
   weight: "400",
-  subsets: ["latin"], 
+  subsets: ["latin"],
 });
 
 type layoutProps = {
-  children: ReactNode,
-}
+  children: ReactNode;
+};
 
-const Layout :FC<layoutProps> = ({ children }) => {
+const Layout: FC<layoutProps> = ({ children }) => {
   return (
-    <div className={roboto.className}>
+    <div className={font.className}>
       <Header />
       {children}
       <Footer />

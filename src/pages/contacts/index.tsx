@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Heading from "../../components/Heading";
+import Heading from "components/Heading";
 // import { useEffect, useState } from "react";
 import { BASE_CONTACTS_URL } from "../../utils/urls";
 // import { useRouter } from "next/router";
