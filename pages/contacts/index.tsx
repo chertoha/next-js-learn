@@ -8,7 +8,9 @@ import { GetStaticProps, GetStaticPropsContext } from "next";
 import { FC } from "react";
 import { contactType } from "../../types";
 
-export const getStaticProps: GetStaticProps = async(context:GetStaticPropsContext) => {
+export const getStaticProps: GetStaticProps = async (
+  context: GetStaticPropsContext
+) => {
   const response = await fetch(BASE_CONTACTS_URL);
   const data = await response.json();
   // const data = null;
@@ -24,13 +26,13 @@ export const getStaticProps: GetStaticProps = async(context:GetStaticPropsContex
       contacts: data,
     }, // will be passed to the page component as props
   };
-}
+};
 
 type contactsPropsType = {
-  contacts: contactType[],
-}
+  contacts: contactType[];
+};
 
-const Contacts : FC <contactsPropsType> = ({ contacts }) => {
+const Contacts: FC<contactsPropsType> = ({ contacts }) => {
   // const router = useRouter();
   // console.log(router);
 

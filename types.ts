@@ -14,6 +14,7 @@ export type addressType = {
 
 
 export type contactType = {
+    id: string | number,
     name: string,
     email: string,
     username?: string,
@@ -26,3 +27,8 @@ export type postType = {
     body: string,
 }
 
+export type socialsType = {
+  id: number | string,
+  icon: string,
+  path: string,
+}

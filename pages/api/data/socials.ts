@@ -1,4 +1,6 @@
-export const socials = [
+import { socialsType } from "../../../types";
+
+export const socials: socialsType[] = [
   {
     id: 1,
     icon: "youtube",

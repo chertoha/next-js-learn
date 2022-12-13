@@ -55,8 +55,7 @@ const Contact: FC<contactPropsType> = ({ contact }) => {
       <Head>
         <title>Contact</title>
       </Head>
-
-      <ContactInfo contact={contact} />
+        <ContactInfo contact={contact} />
     </>
   );
 };
